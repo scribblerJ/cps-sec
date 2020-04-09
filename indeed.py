@@ -40,7 +40,7 @@ class Scraper():                                                    # html데이
             self.writeCSV(jobID, jobTitle, jobLocation, cnt)
 
     def writeCSV(self, ID, Title, Location, cnt):                   #csv 파일 생성함수
-        file = open("indeed.csv", "a", newline="")                          #open(파일명[,mode[,buffering]]) = 파일을 열거나 새로 생성
+        file = open("indeed.csv", "a",encoding="UTF-8", newline="")                          #open(파일명[,mode[,buffering]]) = 파일을 열거나 새로 생성
         wr = csv.writer(file)
         for i in range(len(ID)):
             wr.writerow([str(i + 1 + cnt * 50), ID[i], Title[i], Location[i]])
@@ -48,7 +48,7 @@ class Scraper():                                                    # html데이
 
 
     def scrap(self):
-        file = open("indeed.csv", "w", newline="")
+        file = open("indeed.csv", "w", encoding="UTF-8", newline="")
         wr = csv.writer(file)
         wr.writerow(["No. ", "Link", "Tiltle", "Location"])
         file.close
